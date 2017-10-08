@@ -15,7 +15,7 @@ class Fleet extends Application
     {
         
            
-          // this is the view we want shown
+                // this is the view we want shown
 		$this->data['pagebody'] = 'fleet';
 
 		// build the list of authors, to pass on to our view
@@ -29,14 +29,15 @@ class Fleet extends Application
     
      public function show($key)
     {		
-		// this is the view we want shown
+		// shows the plane information page
 		$this->data['pagebody'] = 'planes';
-		// build the list of plans, to pass on to our view
+		
+                //grabs the information of the specific plane
 		$source = $this->info->get($key);
-		// pass on the data to present, as the "airplanes" view parameter
+		
 		$this->data['plane'] = $source;
 		
-		// pass on the data to present, adding the author record's fields
+                
 		$this->data = array_merge($this->data, (array) $source);
 		$this->render();
     }
